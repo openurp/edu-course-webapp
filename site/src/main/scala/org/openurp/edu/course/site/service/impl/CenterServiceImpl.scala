@@ -21,13 +21,21 @@ class CenterServiceImpl extends CenterService with Initializing {
         val base = center.attribute("base").get.head.text
         var courseSearch: String = null
         var courseDetail: String = null
+        var courseSite: String = null
+        var teacherDetail: String = null
         (center \\ "courseSearch") foreach { cs =>
           courseSearch = cs.child.head.text
         }
         (center \\ "courseDetail") foreach { cs =>
           courseDetail = cs.child.head.text
         }
-        _config = new CenterConfig(base, courseSearch, courseDetail)
+        (center \\ "courseSite") foreach { cs =>
+          courseSite = cs.child.head.text
+        }
+        (center \\ "teacherDetail") foreach { cs =>
+          teacherDetail = cs.child.head.text
+        }
+        _config = new CenterConfig(base, courseSearch, courseDetail, courseSite, teacherDetail)
       }
     }
   }
