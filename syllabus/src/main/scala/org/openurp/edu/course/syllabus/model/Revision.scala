@@ -14,7 +14,7 @@ class Revision extends LongId with Updated with TemporalOn {
 
   var syllabus: Syllabus = _
 
-  var attachment: Attachment = _
+  var attachment: Attachment = new Attachment
 
   var contents = Collections.newBuffer[Section]
 

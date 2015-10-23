@@ -20,6 +20,8 @@
 
   <modules>
     <module>site</module>
+    <module>syllabus</module>
+    <module>webapp</module>
   </modules>
 
 </project>

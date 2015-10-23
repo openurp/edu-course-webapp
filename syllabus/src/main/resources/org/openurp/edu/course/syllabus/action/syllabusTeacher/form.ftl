@@ -1,0 +1,21 @@
+[#ftl]
+[@b.head/]
+[@b.toolbar title="上传教学大纲"]bar.addBack();[/@]
+  [#assign sa][#if syllabus.persisted]!update?id=${syllabus.id}[#else]!save[/#if][/#assign]
+    [@b.form action=sa theme="list"  enctype="multipart/form-data"]
+    [#--[@b.field label='选择课程']
+      <select id="syllabus.course" multiple="true" name="syllabus.course.id" style="width:400px;">
+          [#list courses! as course]
+          <option value='${course.id}' selected>${(course.name)!}</option>
+          [/#list]
+      </select>
+    [/@]--]
+    [@b.select name="syllabus.course.id" label="选择课程" items=courses  empty="..."/]
+    [@b.select name="syllabus.locale" label="语言" items=localeList option="language,language" empty="..."/]
+    [@b.field label="上传教学大纲"]<input name="attachment" type="file"/>[/@]
+      [@b.formfoot]
+        [#if syllabus.persisted]<input type="hidden" name="syllabus.id" value="${syllabus.id!}" />[/#if]
+        [@b.reset/]&nbsp;&nbsp;[@b.submit value="action.submit"/]
+      [/@]
+   [/@]
+[@b.foot/]

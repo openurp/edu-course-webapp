@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<mvc>
+  <profile name="openurp-edu-course-syllabus" package="org.openurp.edu.course.syllabus.action">
+    <url path="/syllabus" suffix=""  style="seo" />
+    <interceptors>
+      <interceptor name="web.Interceptor.hibernate"/>
+      <interceptor name="web.Interceptor.flash"/>
+     </interceptors>
+  </profile>
+</mvc>

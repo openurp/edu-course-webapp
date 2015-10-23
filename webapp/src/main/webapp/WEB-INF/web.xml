@@ -9,4 +9,5 @@
   <listener>
     <listener-class>org.beangle.commons.web.init.BootstrapListener</listener-class>
   </listener>
+
 </web-app>

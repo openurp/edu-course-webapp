@@ -8,8 +8,8 @@
   </parent>
   <groupId>org.openurp.edu.course</groupId>
   <artifactId>openurp-edu-course-site</artifactId>
-  <packaging>war</packaging>
-  <name>OpenURP Edu Course Site Webapp</name>
+  <packaging>jar</packaging>
+  <name>OpenURP Edu Course Site</name>
 
   <properties>
     <bundle.symbolicName>org.openurp.edu.course.site</bundle.symbolicName>
