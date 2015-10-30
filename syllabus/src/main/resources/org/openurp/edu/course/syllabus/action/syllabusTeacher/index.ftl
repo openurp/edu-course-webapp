@@ -5,6 +5,8 @@
   <tr>
     <td class="index_view">
     [@b.form name="syllabusSearchForm"  action="!search" target="syllabuslist" title="ui.searchForm" theme="search"]
+      [@b.textfield name="syllabus.course.code" label="课程代码"/]
+      [@b.textfield name="syllabus.course.name" label="课程名称"/]
       [@b.select name="syllabus.locale" label="语言" items=localeList option="language,language" empty="..."/]
       <input type="hidden" name="orderBy" value="syllabus.id"/>
     [/@]

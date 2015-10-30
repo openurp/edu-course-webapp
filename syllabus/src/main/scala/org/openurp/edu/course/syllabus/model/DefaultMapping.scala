@@ -12,7 +12,7 @@ class DefaultMapping extends Mapping {
       e.revisions is depends("syllabus")))
 
     bind[Revision].on(e => declare(
-      e.syllabus & e.attachment & e.passed are notnull,
+      e.syllabus & e.attachment & e.passed & e.updatedAt are notnull,
       e.contents is depends("Section"),
       e.attachment.name is (notnull, length(50)),
       e.attachment.size is (notnull, column("file_size")),

@@ -8,9 +8,11 @@
   [/@]
   [@b.row]
     [@b.boxcol /]
-    [@b.col width="10%" property="attachment.name" title="附件名称"]${(syllabus.attachment.name)!}[/@]
+    [@b.col width="10%" property="course.code" title="课程代码"]${(syllabus.course.code)!}[/@]
+    [@b.col width="10%" property="course.name" title="课程名称"][@b.a href="!info?id=${syllabus.id!}"]${(syllabus.course.name)!}[/@][/@]
     [@b.col width="10%" property="locale" title="语言"]${syllabus.locale!}[/@]
-    [@b.col width="10%" property="update" title="修改时间"]${syllabus.update!}[/@]
+    [@b.col width="10%" title="版本数"]${syllabus.revisions?size}[/@]
+    [@b.col width="10%" property="update" title="最新修改时间"]${syllabus.updatedAt!}[/@]
     [#--
     [@b.col width="15%" property="syllabus.attachment.name" title="教学大纲"]
       [#if syllabus.attachment??]
