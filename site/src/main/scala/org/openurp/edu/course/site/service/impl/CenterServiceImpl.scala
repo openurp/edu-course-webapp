@@ -3,7 +3,7 @@ package org.openurp.edu.course.site.service.impl
 import org.beangle.commons.bean.Initializing
 import org.openurp.edu.course.site.domain.CenterConfig
 import org.openurp.edu.course.site.service.CenterService
-import org.openurp.platform.api.app.AppConfig
+import org.openurp.platform.api.app.UrpApp
 
 /**
  * @author chaostone
@@ -16,7 +16,7 @@ class CenterServiceImpl extends CenterService with Initializing {
     _config
   }
   override def init() {
-    AppConfig.getAppConfigFile foreach { f =>
+    UrpApp.getUrpAppFile foreach { f =>
       scala.xml.XML.loadFile(f) \\ "center" foreach { center =>
         val base = center.attribute("base").get.head.text
         var courseSearch: String = null

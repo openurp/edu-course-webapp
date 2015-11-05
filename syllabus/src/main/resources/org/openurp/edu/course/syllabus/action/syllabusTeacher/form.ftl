@@ -3,22 +3,28 @@
 [@b.toolbar title="上传教学大纲"]bar.addBack();[/@]
   [#assign sa][#if syllabus.persisted]!update?id=${syllabus.id}[#else]!save[/#if][/#assign]
     [@b.form action=sa theme="list"  enctype="multipart/form-data"]
-      [@b.select name="syllabus.course.id" label="选择课程" items=courses value = syllabus.course empty="..."/]
-      [@b.select name="syllabus.locale" label="语言" items=localeList option="language,language" value = syllabus.locale empty="..." disabled=true/]
+      [@b.select name="syllabus.course.id" label="选择课程" items=courses?sort_by("name") value =syllabus.course empty="..." option=r"${item.name}[${item.code}]"/]
+      [#if syllabus.persisted]
+        [@b.select name="syllabus.locale" label="语言" items=languages  value = syllabus.locale empty="..." disabled=true/]
+      [#else]
+        [@b.select name="syllabus.locale" label="语言" items=languages   value = syllabus.locale empty="..." /]
+      [/#if]
       [@b.field label="上传教学大纲"]
       <input name="attachment" type="file"/>
       [/@]
       [#if syllabus.persisted]
       [@b.field label="已有大纲版本"]
+      <table><tr><td>
       [#list syllabus.revisions! as revision]
         ${revision.updatedAt?string("yyyy-MM-dd HH:mm")!}
         [#if revision.attachment??]
-          [@b.a target="_blank" href="!attachment?revisionId=${revision.id}"]
             ${(revision.attachment.name)!}
-          [/@]
+          [@b.a target="_blank" href="!attachment?revisionId=${revision.id}"]下载[/@]
+          &nbsp;&nbsp;[@b.a href="!removeRevision?revisionId=${revision.id}"]删除[/@]
         [/#if]
-        <#sep><br/></#sep>
+        [#sep]<br/>[/#sep]
       [/#list]
+      </td></tr></table>
       [/@]
       [/#if]
       [@b.formfoot]

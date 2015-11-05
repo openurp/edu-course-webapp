@@ -5,6 +5,7 @@
     <interceptors>
       <interceptor name="web.Interceptor.hibernate"/>
       <interceptor name="web.Interceptor.flash"/>
+      <interceptor name="web.Interceptor.security"/>
      </interceptors>
   </profile>
 </mvc>

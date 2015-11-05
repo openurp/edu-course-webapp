@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.openurp</groupId>
 		<artifactId>openurp-parent</artifactId>
-		<version>0.0.15</version>
+		<version>0.0.17</version>
 	</parent>
   <groupId>org.openurp.edu.course</groupId>
   <artifactId>openurp-edu-course-parent</artifactId>
@@ -15,7 +15,10 @@
   <properties>
     <bundle.symbolicName>org.openurp.edu.course.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp</bundle.namespace>
-    <beangle.webui.version>0.0.2</beangle.webui.version>
+    <beangle.webui.version>0.0.4</beangle.webui.version>
+    <hibernate.version>4.3.1.Final</hibernate.version>
+    <openurp.platform.version>0.0.5</openurp.platform.version>
+    <openurp.api.version>0.0.3</openurp.api.version>
   </properties>
 
   <modules>
@@ -23,5 +26,12 @@
     <module>syllabus</module>
     <module>webapp</module>
   </modules>
-
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.openurp.platform.api</groupId>
+      <artifactId>openurp-platform-api-core</artifactId>
+      <version>${openurp.platform.version}</version>
+    </dependency>
+  </dependencies>
 </project>

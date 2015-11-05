@@ -8,7 +8,7 @@
   </parent>
   <groupId>org.openurp.edu.course</groupId>
   <artifactId>openurp-edu-course-webapp</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <name>OpenURP Edu Course Webapp</name>
 
   <properties>
@@ -30,6 +30,16 @@
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.platform.api</groupId>
+      <artifactId>openurp-platform-api-datasource</artifactId>
+      <version>${openurp.platform.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.platform.api</groupId>
+      <artifactId>openurp-platform-api-cas</artifactId>
+      <version>${openurp.platform.version}</version>
     </dependency>
   </dependencies>
 </project>

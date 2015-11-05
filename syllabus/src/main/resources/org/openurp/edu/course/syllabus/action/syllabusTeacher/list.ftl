@@ -10,6 +10,7 @@
     [@b.boxcol /]
     [@b.col width="10%" property="course.code" title="课程代码"]${(syllabus.course.code)!}[/@]
     [@b.col width="10%" property="course.name" title="课程名称"][@b.a href="!info?id=${syllabus.id!}"]${(syllabus.course.name)!}[/@][/@]
+    [@b.col width="10%" property="course.department" title="开课院系"]${(syllabus.course.department.name)!}[/@]
     [@b.col width="10%" property="locale" title="语言"]${syllabus.locale!}[/@]
     [@b.col width="10%" title="版本数"]${syllabus.revisions?size}[/@]
     [@b.col width="10%" property="update" title="最新修改时间"]${syllabus.updatedAt!}[/@]
