@@ -5,7 +5,7 @@
     [@b.form action=sa theme="list"  enctype="multipart/form-data"]
       [@b.select name="syllabus.course.id" label="选择课程" items=courses?sort_by("name") value =syllabus.course empty="..." option=r"${item.name}[${item.code}]"/]
       [#if syllabus.persisted]
-        [@b.select name="syllabus.locale" label="语言" items=languages  value = syllabus.locale empty="..." disabled=true/]
+        [@b.select name="syllabus.locale" label="语言" items=languages  value = languages[syllabus.locale?string] empty="..." disabled=true/]
       [#else]
         [@b.select name="syllabus.locale" label="语言" items=languages   value = syllabus.locale empty="..." /]
       [/#if]

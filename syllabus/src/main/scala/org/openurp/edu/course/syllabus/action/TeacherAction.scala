@@ -1,34 +1,28 @@
 package org.openurp.edu.course.syllabus.action
 
-import java.io.FileInputStream
-import java.util.Locale
-import org.beangle.commons.collection.page.PageLimit
+import java.beans.Transient
+import java.io.File
+import java.io.FileOutputStream
+
+import org.beangle.commons.codec.digest.Digests
 import org.beangle.commons.io.IOs
+import org.beangle.commons.lang.Strings
 import org.beangle.data.dao.OqlBuilder
+import org.beangle.webmvc.api.annotation.ignore
+import org.beangle.webmvc.api.annotation.mapping
+import org.beangle.webmvc.api.annotation.param
 import org.beangle.webmvc.api.context.Params
 import org.beangle.webmvc.api.view.View
-import org.beangle.webmvc.entity.action.RestfulAction
 import org.openurp.edu.base.model.Course
 import org.openurp.edu.course.syllabus.model.Attachment
-import org.openurp.edu.course.syllabus.model.Syllabus
-import javax.servlet.http.Part
-import org.beangle.commons.lang.SystemInfo
-import java.io.FileOutputStream
 import org.openurp.edu.course.syllabus.model.Revision
-import org.beangle.commons.codec.digest.Digests
-import org.openurp.hr.base.model.Staff
-import org.beangle.webmvc.api.annotation.param
-import org.beangle.webmvc.api.view.{ Status, Stream }
-import java.io.File
-import org.beangle.webmvc.api.context.ActionContext
-import org.beangle.webmvc.api.context.ActionContextHolder
-import org.beangle.commons.web.url.UrlBuilder
-import org.beangle.data.model.Entity
-import org.beangle.commons.lang.Strings
+import org.openurp.edu.course.syllabus.model.Syllabus
+
+import javax.servlet.http.Part
 /**
  * @author xinzhou
  */
-class SyllabusTeacherAction extends AbstractSyllabusAction[Syllabus] {
+class TeacherAction extends AbstractSyllabusAction[Syllabus] {
 
   override def editSetting(entity: Syllabus): Unit = {
     put("languages", languages)
@@ -75,6 +69,8 @@ class SyllabusTeacherAction extends AbstractSyllabusAction[Syllabus] {
         redirect("search", "大纲已审核通过,删除失败")
       } else {
         remove(revision)
+        val file = new File(syllabusConfigService.syllabusBase + revision.attachment.path)
+        if (file.exists()) file.delete()
         redirect("search", "info.remove.success")
       }
     } catch {
@@ -83,5 +79,16 @@ class SyllabusTeacherAction extends AbstractSyllabusAction[Syllabus] {
         redirect("search", "info.delete.failure")
       }
     }
+  }
+
+  override def remove(): View = {
+    val syllabuses = entityDao.find(classOf[Syllabus], longIds("syllabus"))
+    for (syllabus <- syllabuses) {
+      syllabus.revisions.foreach { revision =>
+        val file = new File(syllabusConfigService.syllabusBase + revision.attachment.path)
+        if (file.exists()) file.delete()
+      }
+    }
+    super.remove()
   }
 }

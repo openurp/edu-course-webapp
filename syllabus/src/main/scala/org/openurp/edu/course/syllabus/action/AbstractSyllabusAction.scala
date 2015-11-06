@@ -32,6 +32,11 @@ class AbstractSyllabusAction[T <: Entity[_]] extends RestfulAction[T] {
     super.indexSetting()
   }
 
+  override def search(): String = {
+    put("languages", languages)
+    super.search()
+  }
+
   def attachment(@param("revisionId") revisionId: Long): View = {
     val revision = entityDao.get(classOf[Revision], revisionId)
     if (null != revision.attachment && null != revision.attachment.path) {

@@ -18,7 +18,7 @@ import org.openurp.base.model.Semester
 /**
  * @author xinzhou
  */
-class SyllabusAuditAction extends AbstractSyllabusAction[Revision] {
+class AuditAction extends AbstractSyllabusAction[Revision] {
 
   override def getQueryBuilder(): OqlBuilder[Revision] = {
     //FIXME 根据项目project选择学期
