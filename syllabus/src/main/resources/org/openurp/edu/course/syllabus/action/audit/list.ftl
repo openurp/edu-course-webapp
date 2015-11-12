@@ -24,7 +24,7 @@
     [@b.col width="10%" property="syllabus.course.name" title="课程名称"][@b.a href="!info?id=${revision.id!}"]${(revision.syllabus.course.name)!}[/@][/@]
     [@b.col width="10%" property="syllabus.teacher" title="上传大纲教师"]${(revision.syllabus.teacher.person.name.formatedName)!}[/@]
     [@b.col width="10%" property="syllabus.locale" title="语言"]${languages[revision.syllabus.locale?string]}[/@]
-    [@b.col width="10%" property="passed" title="审核状态"]${(revision.passed)?string('审核通过','审核不通过')!}[/@]
+    [@b.col width="10%" property="passed" title="审核状态"]${((revision.passed)?string('审核通过','审核不通过'))!}[/@]
   [/@]
 [/@]  
 [/@]

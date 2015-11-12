@@ -14,13 +14,11 @@
     [@b.col width="10%" property="locale" title="语言"]${languages[syllabus.locale?string]}[/@]
     [@b.col width="10%" title="版本数"]${syllabus.revisions?size}[/@]
     [@b.col width="10%" property="update" title="最新修改时间"]${syllabus.updatedAt!}[/@]
-    [#--
-    [@b.col width="15%" property="syllabus.attachment.name" title="教学大纲"]
-      [#if syllabus.attachment??]
-        [@b.a target="_blank" href="../attachment?path=${syllabus.attachment.filePath}&name=${syllabus.attachment.name?url('utf-8')}"]下载[/@]
+    [@b.col width="10%" title="审核状态"]
+      [#if syllabus.revisions?size>0]
+        ${(syllabus.revisions?sort_by("updatedAt")?reverse?first.passed?string("审核通过","审核不通过"))!}
       [/#if]
     [/@]
-    --]
   [/@]
 [/@]
 [@b.foot/]

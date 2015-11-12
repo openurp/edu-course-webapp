@@ -40,7 +40,8 @@ class AbstractSyllabusAction[T <: Entity[_]] extends RestfulAction[T] {
   def attachment(@param("revisionId") revisionId: Long): View = {
     val revision = entityDao.get(classOf[Revision], revisionId)
     if (null != revision.attachment && null != revision.attachment.path) {
-      val file = new File(syllabusConfigService.syllabusBase + revision.attachment.path)
+//      val file = new File(syllabusConfigService.syllabusBase + revision.attachment.path)
+      val file = new File("/home/xinzhou/nation.scala")
       if (file.exists) {
         Stream(file, revision.attachment.name)
       } else {

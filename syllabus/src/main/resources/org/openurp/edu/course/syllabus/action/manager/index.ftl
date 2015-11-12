@@ -1,6 +1,6 @@
 [#ftl]
 [@b.head/]
-[@b.toolbar title='教学大纲维护' /]
+[@b.toolbar title='教学大纲查看' /]
 <table  class="indexpanel">
   <tr>
     <td class="index_view">
