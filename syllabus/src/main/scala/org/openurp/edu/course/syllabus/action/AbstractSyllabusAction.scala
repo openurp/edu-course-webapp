@@ -82,7 +82,7 @@ class AbstractSyllabusAction[T <: Entity[_]] extends RestfulAction[T] {
 
   @mapping(value = "{id}")
   override def info(@param("id") id: String): String = {
-    put(shortName, getModel[T](entityName, convertId(id)))
+    put(simpleEntityName, getModel[T](entityName, convertId(id)))
     put("languages", languages)
     forward()
   }

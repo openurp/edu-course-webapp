@@ -18,9 +18,9 @@
 
  <dependencies>
     <dependency>
-	  <groupId>org.openurp.edu.base</groupId>
-	  <artifactId>openurp-edu-base-model</artifactId>
-	  <version>0.0.3</version>
+	  <groupId>org.openurp.edu</groupId>
+	  <artifactId>openurp-edu-base</artifactId>
+      <version>${openurp.api.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>

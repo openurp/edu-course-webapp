@@ -1,6 +1,6 @@
 [#ftl]
 [@b.head/]
-[@b.grid  items=syllabuss var="syllabus" sortable="false"]
+[@b.grid  items=syllabuses var="syllabus" sortable="false"]
   [@b.row]
     [@b.boxcol /]
     [@b.col width="10%" property="course.code" title="课程代码"]${(syllabus.course.code)!}[/@]

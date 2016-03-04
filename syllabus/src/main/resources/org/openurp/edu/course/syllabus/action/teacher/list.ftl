@@ -1,6 +1,6 @@
 [#ftl]
 [@b.head/]
-[@b.grid  items=syllabuss var="syllabus" sortable="false"]
+[@b.grid  items=syllabuses var="syllabus" sortable="false"]
   [@b.gridbar]
     bar.addItem("${b.text("action.new")}",action.add());
     bar.addItem("${b.text("action.modify")}",action.edit());

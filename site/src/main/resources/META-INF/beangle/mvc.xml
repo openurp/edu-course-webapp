@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <mvc>
-  <profile name="openurp-edu-course-site" package="org.openurp.edu.course.site.web.action">
+  <profile name="openurp-edu-course-site" pattern="org.openurp.edu.course.site.web.action">
     <url path="/site" suffix=""  style="seo" />
     <interceptors>
       <interceptor name="web.Interceptor.hibernate"/>
       <interceptor name="web.Interceptor.flash"/>
-     </interceptors>
+    </interceptors>
   </profile>
 </mvc>
