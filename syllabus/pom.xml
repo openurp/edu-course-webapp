@@ -29,7 +29,7 @@
       </dependency>
     <dependency>
       <groupId>org.beangle.webmvc</groupId>
-      <artifactId>beangle-webmvc-entity-plugin_2.11</artifactId>
+      <artifactId>beangle-webmvc-entity-plugin_2.12</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
